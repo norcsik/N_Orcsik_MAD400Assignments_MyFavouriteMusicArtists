@@ -1,0 +1,14 @@
+
+app-content-card{
+    display: block;
+    border: 1px solid gray;
+    padding: 1em;
+    max-width: 620px;
+    margin-bottom: 1em;
+}
+
+app-content-card.is-first{
+    display: block;
+    border: 2px solid black;
+    padding: 1em;
+}
