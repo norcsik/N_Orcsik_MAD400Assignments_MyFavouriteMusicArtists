@@ -1,38 +1,55 @@
+:host{
+    display: block;
+    border: 1px solid gray;
+    padding: 1em;
+    max-width: 620px;
+}
 
+:host.is-first{
+    border: 2px solid black;
+}
 
 header{
     font-size: xx-large;
     font-weight: bold;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-variant: small-caps;
     border-bottom: 5px solid black;
 }
 
 h3{
     font-size: large;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 p{
     font-size: medium;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: block;
     text-align: center;
+    margin: 10px auto;
 }
 
 span{
     font-size: medium;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: block;
     border-top: 1px solid black;
-    margin-top: 1em;
+    margin-top: 10px;
+}
+
+.tags{
+    background-color: gray;
+    border: 1px solid gray;
+    border-radius: 10px;
+    max-width: 250px;
+    transition: all .2s;
+}
+
+.tags:hover{
+    background-color: white;
 }
 
 img{
-    border: 5px solid gray;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    border: 1px solid gray;
+    margin: 20px auto;
     transition: all .2s;
     filter: grayscale(25%);
 }
@@ -42,4 +59,71 @@ img:hover{
     filter: grayscale(0%);
 }
 
+:host.none{
+    color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(243, 243, 243);
+}
 
+:host.electronic{
+    color: darkblue;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(217, 217, 248);
+
+    border-color: darkblue;
+    header{
+        border-color:darkblue;
+    }
+    span{
+        border-color:darkblue;
+    }
+    .tags{
+        background-color: rgb(109, 109, 156);
+        border-color: rgb(109, 109, 156);
+    }
+    .tags:hover{
+        background-color: white;
+    }
+}
+
+:host.jazz{
+    color: darkred;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(248, 217, 217);
+
+    border-color: darkred;
+    header{
+        border-color:darkred;
+    }
+    span{
+        border-color:darkred;
+    }
+    .tags{
+        background-color: rgb(156, 109, 109);
+        border-color: rgb(156, 109, 109);
+    }
+    .tags:hover{
+        background-color: white;
+    }
+}
+
+:host.pop{
+    color: darkmagenta;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(238, 217, 248);
+
+    border-color: darkmagenta;
+    header{
+        border-color:darkmagenta;
+    }
+    span{
+        border-color:darkmagenta;
+    }
+    .tags{
+        background-color: rgb(147, 109, 156);
+        border-color: rgb(147, 109, 156);
+    }
+    .tags:hover{
+        background-color: white;
+    }
+}

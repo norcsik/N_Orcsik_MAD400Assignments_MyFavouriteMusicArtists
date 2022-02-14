@@ -1,3 +1,15 @@
-<app-content-card *ngFor="let song of songList; first as isFirst"
+<app-content-card class="none" *ngFor="let song of songList | typeFilter; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst">
+</app-content-card>
+
+<app-content-card class="electronic" *ngFor="let song of songList | typeFilter:'Electronic'; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst">
+</app-content-card>
+
+<app-content-card class="pop" *ngFor="let song of songList | typeFilter:'Pop'; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst">
+</app-content-card>
+
+<app-content-card class="jazz" *ngFor="let song of songList | typeFilter:'Jazz'; first as isFirst"
   [songDisplay]="song" [class.is-first]="isFirst">
 </app-content-card>

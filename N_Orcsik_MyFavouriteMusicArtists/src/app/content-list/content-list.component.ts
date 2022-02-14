@@ -32,7 +32,7 @@ export class ContentListComponent implements OnInit {
       description: "A contemplative indie song about love in its purest form.", 
       creator: "half•alive", 
       imgURL: "https://images.genius.com/d01e856954d02d85e71535b8ddd97bbf.1000x1000x1.png",
-      type: "Indie Pop"
+      type: "Pop"
     };
 
     let song3: Content;
@@ -42,7 +42,7 @@ export class ContentListComponent implements OnInit {
       description: "A fun, harmonically bold electronic-jazz hybrid.", 
       creator: "Anomalie", 
       imgURL: "https://f4.bcbits.com/img/a0734284541_10.jpg",
-      type: "Nu Jazz"
+      type: "Jazz"
     };
 
     let song4: Content;
@@ -52,7 +52,8 @@ export class ContentListComponent implements OnInit {
       description: "An ambitious, genre-hopping musical journey.", 
       creator: "Jacob Collier", 
       imgURL: "https://upload.wikimedia.org/wikipedia/en/8/83/Djesse_Vol._1.jpg",
-      type: "Jazz Fusion"
+      type: "Jazz",
+      tags: ["djesse", "vol1", "jc"]
     };
 
     let song5: Content;
@@ -62,7 +63,7 @@ export class ContentListComponent implements OnInit {
       description: "A lush, magical electronic anthem.", 
       creator: "Madeon", 
       imgURL: "https://static.wikia.nocookie.net/madeon/images/2/24/712ajqcqELL._SS500_.jpg",
-      type: "Electronic"
+      tags: ["madeon", "good-faith", "2019"]
     };
 
     let song6: Content;
@@ -75,7 +76,18 @@ export class ContentListComponent implements OnInit {
       tags: ["dnb", "electronic", "2018"]
     };
 
-    this.songList = [song1, song2, song3, song4, song5, song6];
+    let song7: Content;
+    song7 = {
+      id: 5,
+      title: "Particle Arts",
+      description: "Energetic trance song.", 
+      creator: "Virtual Self", 
+      imgURL: "https://i1.sndcdn.com/artworks-000262772639-4v6osk-t500x500.jpg",
+      type: "Electronic",
+      tags: ["virtual-self", "2017"]
+    };
+
+    this.songList = [song1, song2, song3, song4, song5, song6, song7];
 
   }
 

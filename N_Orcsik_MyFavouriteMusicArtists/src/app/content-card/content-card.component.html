@@ -4,9 +4,9 @@
 <header>{{ songDisplay ? songDisplay.title : '' }}</header>
 <h3>{{ songDisplay ? songDisplay.creator : '' }}</h3>
 <p>{{ songDisplay ? songDisplay.description : '' }}</p>
-<img *ngIf="songDisplay?.imgURL" [src] = "songDisplay ? songDisplay.imgURL : ''" width = 300 height = 300>
+<img (click) = "infoDisplay()" *ngIf="songDisplay?.imgURL" [src] = "songDisplay ? songDisplay.imgURL : ''" width = 300 height = 300>
 <p *ngIf="songDisplay?.type">{{ songDisplay ? songDisplay.type : '' }}</p>
 <span *ngIf="songDisplay?.tags">
-    <p *ngFor="let tag of songDisplay?.tags" >#{{ songDisplay ? tag : '' }}</p>
+    <p class = "tags" *ngFor="let tag of songDisplay?.tags" >#{{ songDisplay ? tag : '' }}</p>
 </span>
 

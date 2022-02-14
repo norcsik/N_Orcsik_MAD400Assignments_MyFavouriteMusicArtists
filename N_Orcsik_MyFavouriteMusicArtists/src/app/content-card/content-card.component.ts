@@ -21,26 +21,15 @@ export class ContentCardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //Get array of img tags
-    let images = document.getElementsByTagName("img")
+  }
 
-    //Go through array
-    for(let i = 0; i < images.length; i++){
-      
-      //On click function
-      images[i].onclick = function() {
+  infoDisplay(){
+    //Put info into variables
+    var id = this.songDisplay?.id;
+    var title = this.songDisplay?.title;
 
-        //Get instance of content list
-        var content = new ContentListComponent;
-
-        //Put info into variables
-        var id = content.songList[i].id;
-        var title = content.songList[i].title;
-
-        //Display info
-        console.log("ID: " + id + "\nTitle: " + title);
-      };
-    }
+    //Display info
+    console.log("ID: " + id + "\nTitle: " + title);
   }
 
 }
