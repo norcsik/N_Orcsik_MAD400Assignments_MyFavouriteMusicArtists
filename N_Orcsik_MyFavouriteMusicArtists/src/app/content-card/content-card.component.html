@@ -1,12 +1,16 @@
 
 <!-- Display songs -->
-
-<header>{{ songDisplay ? songDisplay.title : '' }}</header>
-<h3>{{ songDisplay ? songDisplay.creator : '' }}</h3>
-<p>{{ songDisplay ? songDisplay.description : '' }}</p>
-<img (click) = "infoDisplay()" *ngIf="songDisplay?.imgURL" [src] = "songDisplay ? songDisplay.imgURL : ''" width = 300 height = 300>
-<p *ngIf="songDisplay?.type">{{ songDisplay ? songDisplay.type : '' }}</p>
-<span *ngIf="songDisplay?.tags">
-    <p class = "tags" *ngFor="let tag of songDisplay?.tags" >#{{ songDisplay ? tag : '' }}</p>
-</span>
-
+<div *ngIf="songDisplay">
+    <header class = "title">{{ songDisplay.title }}</header>
+    <h3>{{ songDisplay.creator }}</h3>
+    <p>{{ songDisplay.description }}</p>
+    <div [ngSwitch]='songDisplay.imgURL'>
+        <img *ngSwitchCase="null" (click) = "infoDisplay()" [src] = "'https://carrotstore.com/images/music_default.png'" width = 300 height = 300>
+        <img *ngSwitchDefault (click) = "infoDisplay()" [src] = "songDisplay.imgURL" width = 300 height = 300>
+    </div>
+    <p class = "type" appHoverAffect [decoration]="'underline'" *ngIf="songDisplay?.type">{{ songDisplay.type }}</p>
+    <span *ngIf="songDisplay?.tags">
+        <p appHoverAffect [weight]="'bold'" [decoration]="'none'" 
+        class = "tags" *ngFor="let tag of songDisplay?.tags" >#{{ tag }}</p>
+    </span>
+</div>

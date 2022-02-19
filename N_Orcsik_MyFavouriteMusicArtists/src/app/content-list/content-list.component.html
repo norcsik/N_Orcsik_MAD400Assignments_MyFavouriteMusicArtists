@@ -1,15 +1,20 @@
-<app-content-card class="none" *ngFor="let song of songList | typeFilter; first as isFirst"
-  [songDisplay]="song" [class.is-first]="isFirst">
+<input #search>
+<br>
+<button (click)="updatePage(search.value)">Search</button>
+<h3>{{ confirmMsg }}</h3>
+
+<app-content-card appHoverAffect [border]="'dotted'" class="none" *ngFor="let song of songList | typeFilter; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst" [class.found]="search.value === song.title">
 </app-content-card>
 
-<app-content-card class="electronic" *ngFor="let song of songList | typeFilter:'Electronic'; first as isFirst"
-  [songDisplay]="song" [class.is-first]="isFirst">
+<app-content-card appHoverAffect [border]="'dotted'" class="electronic" *ngFor="let song of songList | typeFilter:'Electronic'; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst" [class.found]="search.value === song.title">
 </app-content-card>
 
-<app-content-card class="pop" *ngFor="let song of songList | typeFilter:'Pop'; first as isFirst"
-  [songDisplay]="song" [class.is-first]="isFirst">
+<app-content-card appHoverAffect [border]="'dotted'" class="pop" *ngFor="let song of songList | typeFilter:'Pop'; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst" [class.found]="search.value === song.title">
 </app-content-card>
 
-<app-content-card class="jazz" *ngFor="let song of songList | typeFilter:'Jazz'; first as isFirst"
-  [songDisplay]="song" [class.is-first]="isFirst">
+<app-content-card appHoverAffect [border]="'dotted'" class="jazz" *ngFor="let song of songList | typeFilter:'Jazz'; first as isFirst"
+  [songDisplay]="song" [class.is-first]="isFirst" [class.found]="search.value === song.title">
 </app-content-card>

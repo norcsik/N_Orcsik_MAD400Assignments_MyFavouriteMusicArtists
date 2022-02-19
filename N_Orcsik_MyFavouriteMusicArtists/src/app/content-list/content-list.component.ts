@@ -41,7 +41,6 @@ export class ContentListComponent implements OnInit {
       title: "Daybreak",
       description: "A fun, harmonically bold electronic-jazz hybrid.", 
       creator: "Anomalie", 
-      imgURL: "https://f4.bcbits.com/img/a0734284541_10.jpg",
       type: "Jazz"
     };
 
@@ -88,6 +87,35 @@ export class ContentListComponent implements OnInit {
     };
 
     this.songList = [song1, song2, song3, song4, song5, song6, song7];
+    
+  }
+
+  //Confirmation message
+  confirmMsg: string = "";
+
+  updatePage(search: string): void {
+
+    //Grab list of songs
+    var list = new ContentListComponent;
+
+    //Get html element
+    var text = document.getElementsByTagName('h3');
+
+    //Go through each song and match the title
+    for(var song of list.songList){
+      if(song.title == search){
+        //Set message
+        this.confirmMsg ="There is a song with that title.";
+        text[0].className = "yes";
+        //If it exists, break out of the loop
+        break;
+      }
+      else{
+        //Set message
+        this.confirmMsg = "There isn't a song with that title.";
+        text[0].className = "no";
+      }
+    }
 
   }
 

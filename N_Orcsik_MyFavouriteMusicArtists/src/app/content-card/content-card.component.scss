@@ -3,6 +3,7 @@
     border: 1px solid gray;
     padding: 1em;
     max-width: 620px;
+    margin: 10px auto;
 }
 
 :host.is-first{
@@ -78,8 +79,8 @@ img:hover{
         border-color:darkblue;
     }
     .tags{
-        background-color: rgb(109, 109, 156);
-        border-color: rgb(109, 109, 156);
+        background-color: rgb(135, 135, 190);
+        border-color: rgb(135, 135, 190);
     }
     .tags:hover{
         background-color: white;
@@ -99,8 +100,8 @@ img:hover{
         border-color:darkred;
     }
     .tags{
-        background-color: rgb(156, 109, 109);
-        border-color: rgb(156, 109, 109);
+        background-color: rgb(185, 136, 136);
+        border-color: rgb(185, 136, 136);
     }
     .tags:hover{
         background-color: white;
@@ -120,8 +121,29 @@ img:hover{
         border-color:darkmagenta;
     }
     .tags{
-        background-color: rgb(147, 109, 156);
-        border-color: rgb(147, 109, 156);
+        background-color: rgb(174, 130, 184);
+        border-color: rgb(174, 130, 184);
+    }
+    .tags:hover{
+        background-color: white;
+    }
+}
+
+:host.found{
+    color: rgb(194, 146, 25);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(248, 246, 217);
+
+    border: dotted 3px rgb(194, 146, 25);
+    header{
+        border-color:rgb(194, 146, 25);
+    }
+    span{
+        border-color:rgb(194, 146, 25);
+    }
+    .tags{
+        background-color: rgb(230, 206, 140);
+        border-color: rgb(230, 206, 140);
     }
     .tags:hover{
         background-color: white;
