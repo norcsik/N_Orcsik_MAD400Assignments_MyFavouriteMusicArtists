@@ -19,8 +19,22 @@ export class CreateContentComponent implements OnInit {
   }
 
   //Create song function
-  createSong(id: string, title: string, desc: string, creator: string, imageUrl: string, type: string, tags: string): void {
+  createSong(id: string, title: string, desc: string, creator: string, imageUrl: any, type: any, tags: any): void {
     
+    //If optional inputs are empty, make them null
+    if(imageUrl == ''){
+      imageUrl = null;
+    }
+    if(type == ''){
+      type = null;
+    }
+    if(tags == ''){
+      tags = null;
+    }
+    else{
+      tags = tags.split(", ");
+    }
+
     //Create new song
     this.newSong = {
       id: parseInt(id),
@@ -29,7 +43,7 @@ export class CreateContentComponent implements OnInit {
       creator: creator,
       imgURL: imageUrl,
       type: type,
-      tags: tags.split(", ")
+      tags: tags
     };
 
     //Get inputs
@@ -58,13 +72,12 @@ export class CreateContentComponent implements OnInit {
 
       //Send message
       this.newMsg.emit("");
-      
+
       //Success console message
       successResult;
 
       //Clear inputs
       for(var input of inputs){
-          console.log(input.value);
           input.value = '';
       }
       
