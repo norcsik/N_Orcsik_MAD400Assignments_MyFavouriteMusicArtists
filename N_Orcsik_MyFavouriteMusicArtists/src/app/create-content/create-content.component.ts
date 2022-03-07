@@ -51,12 +51,14 @@ export class CreateContentComponent implements OnInit {
       }
     });
 
-    //Messages
+    //Success or fail
     newPromise.then(successResult =>{
       //Send the song via eventemitter
       this.newSongEvent.emit(this.newSong);
+
       //Send message
       this.newMsg.emit("");
+      
       //Success console message
       successResult;
 
@@ -66,15 +68,11 @@ export class CreateContentComponent implements OnInit {
           input.value = '';
       }
       
-      
     })
     .catch((failResult) => { 
       //Send fail message
       this.newMsg.emit(failResult);
     });
 
-    // var resetForm = <HTMLFormElement>document.getElementById("form");
-    // resetForm.reset();
-    //this.newSongEvent.emit(this.newSong);
   }
 }

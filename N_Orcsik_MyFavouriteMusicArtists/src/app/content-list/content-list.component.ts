@@ -125,11 +125,11 @@ export class ContentListComponent implements OnInit {
   createFail(msg: string): void {
 
     //Add to list
-    this.createMsg = msg;
+    this.confirmMsg = msg;
 
     //Get html element
     var text = document.getElementsByTagName('h3');
-    text[1].className = "no";
+    text[0].className = "no";
   }
 
   updateList(newSong: Content): void {

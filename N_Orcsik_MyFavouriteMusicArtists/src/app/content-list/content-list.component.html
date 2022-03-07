@@ -4,7 +4,6 @@ Search: <input #search>
 <br>
 <button (click)="updatePage(search.value)">Search</button>
 <h3>{{ confirmMsg }}</h3>
-<h3>{{ createMsg }}</h3>
 
 <app-content-card appHoverAffect [border]="'dotted'" class="none" *ngFor="let song of songList | typeFilter; first as isFirst"
   [songDisplay]="song" [class.is-first]="isFirst" [class.found]="search.value === song.title">
