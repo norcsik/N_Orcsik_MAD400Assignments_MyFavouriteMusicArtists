@@ -93,6 +93,9 @@ export class ContentListComponent implements OnInit {
   //Confirmation message
   confirmMsg: string = "";
 
+  //Creation message
+  createMsg: string = "";
+
   updatePage(search: string): void {
 
     //Grab list of songs
@@ -116,6 +119,26 @@ export class ContentListComponent implements OnInit {
         text[0].className = "no";
       }
     }
+
+  }
+
+  createFail(msg: string): void {
+
+    //Add to list
+    this.createMsg = msg;
+
+    //Get html element
+    var text = document.getElementsByTagName('h3');
+    text[1].className = "no";
+  }
+
+  updateList(newSong: Content): void {
+
+    //Add to list
+    this.songList.push(newSong);
+
+    //Clone array
+    this.songList = [...this.songList];
 
   }
 
