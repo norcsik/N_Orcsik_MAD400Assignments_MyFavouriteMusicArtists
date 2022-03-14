@@ -1,2 +1,8 @@
-<app-content-list></app-content-list>
+<app-messages></app-messages>
+<br>
+<input #id_lookup type="number">
+<br>
+<button (click)="setId(id_lookup.value)">Display</button>
+<br>
+<app-content-list [singleSong] = "singleSong"></app-content-list>
 
