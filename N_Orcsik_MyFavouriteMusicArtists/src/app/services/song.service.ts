@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { MessageService } from '../services/message.service';
-import { SONGLIST } from '../helper-files/contentDb';
+import { SONGLIST } from '../helper-files/ContentDb';
 import { Observable, of } from 'rxjs';
 import { ContentListComponent } from '../content-list/content-list.component';
 
