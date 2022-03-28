@@ -1,3 +1,6 @@
+<app-modify-content (newSongEvent)="addSongToList($event)" (updateSongEvent)="updateSongInList($event)"></app-modify-content>
+<br>
+
 <input #search>
 <br>
 <button (click)="updatePage(search.value)">Search</button>

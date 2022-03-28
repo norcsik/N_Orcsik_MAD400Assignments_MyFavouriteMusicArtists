@@ -52,6 +52,31 @@ export class ContentListComponent implements OnInit {
     this.songService.getSingleContent("0").subscribe(singleSong => this.singleSong = singleSong)
   }
 
+  //Get server content
+  getContentFromServer(): void{
+    this.songService.getContentObs().subscribe(songs => {
+      console.log("Got the content from the server: ", songs);
+      this.songList = songs;
+    });
+  }
+
+  //Adding content
+  addSongToList(newContentItem: Content): void {
+    this.songService.addContent(newContentItem)
+    .subscribe(newContentFromServer =>
+      this.songList.push(newContentFromServer)
+    );
+
+    this.getContentFromServer();
+  }   
   
+  //Updating content
+  updateSongInList(contentItem: Content): void {
+    this.songService.updateContent(contentItem).subscribe(() => {
+      console.log("Content updated successfully")
+    });
+
+    this.getContentFromServer();
+  }
 
 }

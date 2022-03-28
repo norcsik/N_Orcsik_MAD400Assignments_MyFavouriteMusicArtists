@@ -1,0 +1,17 @@
+<br>
+ID: <input [(ngModel)]="id" (ngModelChange)="pageUpdate()" type="number">
+<br>
+Title: <input [(ngModel)]="title">
+<br>
+Description: <input [(ngModel)]="desc">
+<br>
+Artist: <input [(ngModel)]="creator">
+<br>
+Image URL: <input [(ngModel)]="img">
+<br>
+Genre: <input [(ngModel)]="type">
+<br>
+Tags: <input [(ngModel)]="tags">
+<br>
+<button (click)="addUpdateSong(id, title, desc, creator, img, type, tags)">{{ buttonName }}</button>
+<br>

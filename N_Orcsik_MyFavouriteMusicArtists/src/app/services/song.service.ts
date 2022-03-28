@@ -4,6 +4,7 @@ import { MessageService } from '../services/message.service';
 import { SONGLIST } from '../helper-files/ContentDb';
 import { Observable, of } from 'rxjs';
 import { ContentListComponent } from '../content-list/content-list.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,15 +12,21 @@ import { ContentListComponent } from '../content-list/content-list.component';
 })
 export class SongService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private http: HttpClient) { 
+    
+  }
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+  };
 
   getContent(): Content[] {
     return SONGLIST;
   }
 
   getContentObs(): Observable<Content[]>{
-    this.messageService.add('Content array loaded!');
-    return of(SONGLIST)
+    this.messageService.add('Content loaded!');
+    return this.http.get<Content[]>("api/content");
   }
 
   getSingleContent(index: string): Observable<any>{
@@ -47,5 +54,15 @@ export class SongService {
       this.messageService.add('Error: Invalid non number input');
       return of(null);
     }
+  }
+
+  addContent(newContentItem: Content): Observable<Content>{
+    this.messageService.add('New song successfully added!');
+    return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
+  }
+
+  updateContent(contentItem: Content): Observable<any>{
+    this.messageService.add('Song at index ' + (contentItem.id ?? 0) + ' updated!');
+    return this.http.put("api/content", contentItem,  this.httpOptions);
   }
 }
