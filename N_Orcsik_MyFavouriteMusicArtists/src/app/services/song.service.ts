@@ -56,11 +56,13 @@ export class SongService {
     }
   }
 
+  //Add content to database
   addContent(newContentItem: Content): Observable<Content>{
     this.messageService.add('New song successfully added!');
     return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
   }
 
+  //Update content in database
   updateContent(contentItem: Content): Observable<any>{
     this.messageService.add('Song at index ' + (contentItem.id ?? 0) + ' updated!');
     return this.http.put("api/content", contentItem,  this.httpOptions);
