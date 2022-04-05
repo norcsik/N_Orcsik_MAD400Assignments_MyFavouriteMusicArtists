@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Add Song</h1>
+
+<mat-form-field>
+    <input matInput placeholder="ID" type="number">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Title">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Description">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Artist">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Image URL">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Genre">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Tags">
+</mat-form-field>
+
+<br>
+<!-- <button mat-stroked-button color="accent" [mat-dialog-close]="{content: data{}}">Add</button> -->
+<button mat-stroked-button color="accent" (click)="onYesClick()">Add</button>
+<button mat-stroked-button color="accent" (click)="onNoClick()">Cancel</button>

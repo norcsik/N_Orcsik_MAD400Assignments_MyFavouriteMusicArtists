@@ -1,17 +1,35 @@
 <br>
-ID: <input [(ngModel)]="id" (ngModelChange)="pageUpdate()" type="number">
+<mat-form-field>
+    <input matInput placeholder="ID" [(ngModel)]="id" (ngModelChange)="pageUpdate()" type="number">
+</mat-form-field>
 <br>
-Title: <input [(ngModel)]="title">
+<mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="title">
+</mat-form-field>
 <br>
-Description: <input [(ngModel)]="desc">
+<mat-form-field>
+    <input matInput placeholder="Description" [(ngModel)]="desc">
+</mat-form-field>
 <br>
-Artist: <input [(ngModel)]="creator">
+<mat-form-field>
+    <input matInput placeholder="Artist" [(ngModel)]="creator">
+</mat-form-field>
 <br>
-Image URL: <input [(ngModel)]="img">
+<mat-form-field>
+    <input matInput placeholder="Image URL" [(ngModel)]="img">
+</mat-form-field>
 <br>
-Genre: <input [(ngModel)]="type">
+<mat-form-field>
+    <input matInput placeholder="Genre" [(ngModel)]="type">
+</mat-form-field>
 <br>
-Tags: <input [(ngModel)]="tags">
+<mat-form-field>
+    <input matInput placeholder="Tags" [(ngModel)]="tags">
+</mat-form-field>
+
 <br>
-<button (click)="addUpdateSong(id, title, desc, creator, img, type, tags)">{{ buttonName }}</button>
+<button mat-stroked-button color="accent" (click)="addUpdateSong(id, title, desc, creator, img, type, tags)">{{ buttonName }}</button>
+<br>
+<br>
+<button mat-stroked-button color="accent" (click)="addNewContentDialog()">Add New Content</button>
 <br>

@@ -42,6 +42,7 @@ export class SongService {
       else{
         this.messageService.add('Content item at id: ' + index);
         return of(SONGLIST[parseInt(index)]);
+        //return this.http.get<Content[]>("api/content" + index); ???
       }
     }
     //0 doesn't pass parseInt() for some reason, set manually

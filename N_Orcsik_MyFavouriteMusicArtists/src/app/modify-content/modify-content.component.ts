@@ -1,11 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modify-content',
   templateUrl: './modify-content.component.html',
   styleUrls: ['./modify-content.component.scss']
 })
+
 export class ModifyContentComponent implements OnInit {
 
   //Events for sending adding and updating
@@ -16,7 +18,7 @@ export class ModifyContentComponent implements OnInit {
   newSong?: Content;
 
   //Input values
-  id = "";
+  id: string = "";
   title = "";
   desc = "";
   creator = "";
@@ -27,7 +29,8 @@ export class ModifyContentComponent implements OnInit {
   //Button name
   buttonName: string = "Add";
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
+    this.newSong = {id: 0, title: "", description: "", creator: "", imgURL: "", type: "", tags: [""]}
   }
 
   ngOnInit(): void {
@@ -35,7 +38,7 @@ export class ModifyContentComponent implements OnInit {
 
   //Update button on page
   pageUpdate(){
-    if(this.id!= null){
+    if(parseInt(this.id) >= 0){
       this.buttonName = "Update";
     }
     else{
@@ -128,4 +131,46 @@ export class ModifyContentComponent implements OnInit {
   //   this.updateSongEvent.emit(this.newSong);
   // }
 
+
+  //Add new content method
+  addNewContentDialog(){
+    const dialogRef = this.dialog.open(NewSongDialog, {
+      width: '250px',
+      data: this.newSong
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.newSong = result.content;
+      this.addUpdateSong
+    });
+  }
+
+}
+
+// export interface DialogData {
+//   newSong: Content
+// }
+
+@Component({
+  selector: 'new-song-dialog',
+  templateUrl: 'new-song-dialog.html'
+})
+export class NewSongDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<NewSongDialog>,
+    //@Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: Content,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onYesClick(): void{
+    
+    //this.newSongEvent.emit(this.newSong);
+    this.dialogRef.close(this.data);
+  }
 }

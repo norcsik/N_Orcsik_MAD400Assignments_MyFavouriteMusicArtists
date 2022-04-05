@@ -1,9 +1,12 @@
 <app-modify-content (newSongEvent)="addSongToList($event)" (updateSongEvent)="updateSongInList($event)"></app-modify-content>
 <br>
 
-<input #search>
+<mat-form-field>
+  <input matInput placeholder="Enter search value" #search>
+</mat-form-field>
 <br>
-<button (click)="updatePage(search.value)">Search</button>
+<button mat-stroked-button color="accent" (click)="updatePage(search.value)">Search</button>
+
 <h3>{{ confirmMsg }}</h3>
 
 <app-content-card [songDisplay] = "singleSong" class="single"></app-content-card>
