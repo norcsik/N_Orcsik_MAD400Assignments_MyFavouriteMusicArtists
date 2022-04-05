@@ -47,7 +47,7 @@ export class ModifyContentComponent implements OnInit {
   }
 
   //Method to create new song or update existing song
-  addUpdateSong(id: string, title: string, description: string, creator: string, imageUrl: any, type: any, tags: any): void {
+  addUpdateSong(id: number, title: string, description: string, creator: string, imageUrl: any, type: any, tags: any): void {
     
     //If these are empty, set to null
     if(imageUrl == ""){
@@ -61,10 +61,10 @@ export class ModifyContentComponent implements OnInit {
     }
 
     //If id isn't empty, update
-    if(id != ""){
+    if(id != null){
 
       this.newSong = {
-        id: parseInt(id),
+        id: id,
         title: title,
         description: description,
         creator: creator,
@@ -94,15 +94,15 @@ export class ModifyContentComponent implements OnInit {
     }
 
     //Clear input fields
-    let fields = document.getElementsByTagName("input");
+    // let fields = document.getElementsByTagName("input");
 
-    fields[1].value = "";
-    fields[2].value = "";
-    fields[3].value = "";
-    fields[4].value = "";
-    fields[5].value = "";
-    fields[6].value = "";
-    fields[7].value = "";
+    // fields[1].value = "";
+    // fields[2].value = "";
+    // fields[3].value = "";
+    // fields[4].value = "";
+    // fields[5].value = "";
+    // fields[6].value = "";
+    // fields[7].value = "";
     
   }
   
@@ -141,22 +141,20 @@ export class ModifyContentComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.newSong = result.content;
-      this.addUpdateSong
+      console.log(result);
+      this.addUpdateSong(result.id, result.title, result.description, result.creator, result.imgURL, result.type, result.tags);
     });
   }
 
 }
-
-// export interface DialogData {
-//   newSong: Content
-// }
 
 @Component({
   selector: 'new-song-dialog',
   templateUrl: 'new-song-dialog.html'
 })
 export class NewSongDialog {
+
+  temp_id: string = "";
 
   constructor(
     public dialogRef: MatDialogRef<NewSongDialog>,
@@ -169,8 +167,7 @@ export class NewSongDialog {
   }
 
   onYesClick(): void{
-    
-    //this.newSongEvent.emit(this.newSong);
+    this.data.id = parseInt(this.temp_id);
     this.dialogRef.close(this.data);
   }
 }

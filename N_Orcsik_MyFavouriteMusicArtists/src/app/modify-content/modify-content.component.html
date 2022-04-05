@@ -1,35 +1,5 @@
 <br>
-<mat-form-field>
-    <input matInput placeholder="ID" [(ngModel)]="id" (ngModelChange)="pageUpdate()" type="number">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Title" [(ngModel)]="title">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Description" [(ngModel)]="desc">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Artist" [(ngModel)]="creator">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Image URL" [(ngModel)]="img">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Genre" [(ngModel)]="type">
-</mat-form-field>
-<br>
-<mat-form-field>
-    <input matInput placeholder="Tags" [(ngModel)]="tags">
-</mat-form-field>
 
-<br>
-<button mat-stroked-button color="accent" (click)="addUpdateSong(id, title, desc, creator, img, type, tags)">{{ buttonName }}</button>
-<br>
 <br>
 <button mat-stroked-button color="accent" (click)="addNewContentDialog()">Add New Content</button>
 <br>
