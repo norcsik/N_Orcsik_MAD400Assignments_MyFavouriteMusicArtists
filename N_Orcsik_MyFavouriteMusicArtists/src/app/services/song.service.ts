@@ -65,7 +65,10 @@ export class SongService {
 
   //Update content in database
   updateContent(contentItem: Content): Observable<any>{
+    console.log("WTF");
     this.messageService.add('Song at index ' + (contentItem.id ?? 0) + ' updated!');
     return this.http.put("api/content", contentItem,  this.httpOptions);
   }
+
+
 }

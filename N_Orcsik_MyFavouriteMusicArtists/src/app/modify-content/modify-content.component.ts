@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { SONGLIST } from '../helper-files/ContentDb';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-modify-content',
@@ -15,7 +17,11 @@ export class ModifyContentComponent implements OnInit {
   @Output() updateSongEvent: EventEmitter<Content> = new EventEmitter<Content>();
 
   //Variable for new song
-  newSong?: Content;
+  @Input() newSong?: Content;
+
+  //Button Text
+  @Input() buttonText = "Add New Content"
+  @Input() addUpdateButton = "Add"
 
   //Input values
   id: string = "";
@@ -26,24 +32,11 @@ export class ModifyContentComponent implements OnInit {
   type = "";
   tags = "";
 
-  //Button name
-  buttonName: string = "Add";
-
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private messageService: MessageService) {
     this.newSong = {id: 0, title: "", description: "", creator: "", imgURL: "", type: "", tags: [""]}
   }
 
   ngOnInit(): void {
-  }
-
-  //Update button on page
-  pageUpdate(){
-    if(parseInt(this.id) >= 0){
-      this.buttonName = "Update";
-    }
-    else{
-      this.buttonName = "Add";
-    } 
   }
 
   //Method to create new song or update existing song
@@ -61,8 +54,26 @@ export class ModifyContentComponent implements OnInit {
     }
 
     //If id isn't empty, update
-    if(id != null){
+    if(id >= SONGLIST.length || id < 0){
 
+      this.messageService.add('Index out of bounds!');
+
+    }
+    //If id is empty, add
+    else if (id == null){
+
+      this.newSong = {
+        title: title,
+        description: description,
+        creator: creator,
+        imgURL: imageUrl,
+        type: type,
+        tags: tags.split(",")
+      };
+      this.newSongEvent.emit(this.newSong);
+
+    }
+    else{
       this.newSong = {
         id: id,
         title: title,
@@ -70,39 +81,10 @@ export class ModifyContentComponent implements OnInit {
         creator: creator,
         imgURL: imageUrl,
         type: type,
-        tags: tags.split(", ")
+        tags: tags.split(",")
       };
       this.updateSongEvent.emit(this.newSong);
-
-      //Change button back
-      this.buttonName = "Add";
-
     }
-    //If id is empty, add
-    else{
-
-      this.newSong = {
-        title: title,
-        description: description,
-        creator: creator,
-        imgURL: imageUrl,
-        type: type,
-        tags: tags.split(", ")
-      };
-      this.newSongEvent.emit(this.newSong);
-
-    }
-
-    //Clear input fields
-    // let fields = document.getElementsByTagName("input");
-
-    // fields[1].value = "";
-    // fields[2].value = "";
-    // fields[3].value = "";
-    // fields[4].value = "";
-    // fields[5].value = "";
-    // fields[6].value = "";
-    // fields[7].value = "";
     
   }
   
@@ -134,6 +116,7 @@ export class ModifyContentComponent implements OnInit {
 
   //Add new content method
   addNewContentDialog(){
+
     const dialogRef = this.dialog.open(NewSongDialog, {
       width: '250px',
       data: this.newSong
@@ -154,20 +137,45 @@ export class ModifyContentComponent implements OnInit {
 })
 export class NewSongDialog {
 
-  temp_id: string = "";
+  temp_id: string;
 
   constructor(
     public dialogRef: MatDialogRef<NewSongDialog>,
     //@Inject(MAT_DIALOG_DATA) public data: DialogData,
     @Inject(MAT_DIALOG_DATA) public data: Content,
-  ) {}
+  ) {
+    this.temp_id = "";
+    if(this.data.id){
+      this.temp_id = this.data.id.toString();
+    }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   onYesClick(): void{
-    this.data.id = parseInt(this.temp_id);
+    if(this.temp_id == ""){
+      this.data.id = SONGLIST.length;
+    }
+    else{
+      this.data.id = parseInt(this.temp_id);
+    }
+
+    //Clear input fields
+    // let fields = document.getElementsByTagName("input");
+
+    // console.log(fields[2].value);
+    // console.log(fields[3].value);
+    // console.log(fields[4].value);
+    // fields[2].value = "";
+    // fields[3].value = "";
+    // fields[4].value = "";
+    // fields[5].value = "";
+    // fields[6].value = "";
+    // fields[7].value = "";
+    // fields[8].value = "";
+
     this.dialogRef.close(this.data);
   }
 }

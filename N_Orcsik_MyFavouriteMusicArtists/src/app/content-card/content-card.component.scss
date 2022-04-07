@@ -10,14 +10,24 @@
     border: 2px solid black;
 }
 
-header{
+mat-icon{
+    float:left;
+}
+
+mat-card{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+mat-card-title{
     font-size: xx-large;
     font-weight: bold;
     font-variant: small-caps;
     border-bottom: 5px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-h3{
+mat-card-subtitle{
     font-size: large;
 }
 
@@ -31,21 +41,28 @@ p{
 span{
     font-size: medium;
     display: block;
-    border-top: 1px solid black;
     margin-top: 10px;
 }
 
 .tags{
-    background-color: gray;
-    border: 1px solid gray;
-    border-radius: 10px;
-    max-width: 250px;
-    transition: all .2s;
+    margin-top: 10px;
+    mat-chip{
+        background-color: white;
+        border: 1px solid black;
+    }
 }
 
-.tags:hover{
-    background-color: white;
-}
+// .tags{
+//     background-color: gray;
+//     border: 1px solid gray;
+//     border-radius: 10px;
+//     max-width: 250px;
+//     transition: all .2s;
+// }
+
+// .tags:hover{
+//     background-color: white;
+// }
 
 img{
     display: block;
@@ -61,97 +78,134 @@ img:hover{
 }
 
 :host.none{
-    color: black;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(243, 243, 243);
+    mat-card{
+        color: black;
+        background-color: rgb(243, 243, 243);
+    }
+
+    mat-card-subtitle{
+        color:black;
+    }
+    
 }
 
 :host.electronic{
-    color: darkblue;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(217, 217, 248);
 
+    mat-card{
+        color: darkblue;
+        background-color: rgb(217, 217, 248);
+    }
+    
     border-color: darkblue;
-    header{
+
+    mat-card-title{
         border-color:darkblue;
     }
+
+    mat-card-subtitle{
+        color:darkblue;
+    }
+
     span{
         border-color:darkblue;
     }
-    .tags{
-        background-color: rgb(135, 135, 190);
-        border-color: rgb(135, 135, 190);
-    }
-    .tags:hover{
-        background-color: white;
-    }
+    // .tags{
+    //     background-color: rgb(135, 135, 190);
+    //     border-color: rgb(135, 135, 190);
+    // }
+    // .tags:hover{
+    //     background-color: white;
+    // }
 }
 
 :host.jazz{
-    color: darkred;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(248, 217, 217);
+
+    mat-card{
+        color: darkred;
+        background-color: rgb(248, 217, 217);
+    }
 
     border-color: darkred;
-    header{
+
+    mat-card-title{
         border-color:darkred;
     }
+
+    mat-card-subtitle{
+        color:darkred;
+    }
+
     span{
         border-color:darkred;
     }
-    .tags{
-        background-color: rgb(185, 136, 136);
-        border-color: rgb(185, 136, 136);
-    }
-    .tags:hover{
-        background-color: white;
-    }
+    // .tags{
+    //     background-color: rgb(185, 136, 136);
+    //     border-color: rgb(185, 136, 136);
+    // }
+    // .tags:hover{
+    //     background-color: white;
+    // }
 }
 
 :host.pop{
-    color: darkmagenta;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(238, 217, 248);
+
+    mat-card{
+        color: darkmagenta;
+        background-color: rgb(238, 217, 248);
+    }
 
     border-color: darkmagenta;
-    header{
+
+    mat-card-title{
         border-color:darkmagenta;
     }
+
+    mat-card-subtitle{
+        color:darkmagenta;
+    }
+
     span{
         border-color:darkmagenta;
     }
-    .tags{
-        background-color: rgb(174, 130, 184);
-        border-color: rgb(174, 130, 184);
-    }
-    .tags:hover{
-        background-color: white;
-    }
+    // .tags{
+    //     background-color: rgb(174, 130, 184);
+    //     border-color: rgb(174, 130, 184);
+    // }
+    // .tags:hover{
+    //     background-color: white;
+    // }
 }
 
 :host.found{
-    color: rgb(194, 146, 25);
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(248, 246, 217);
+
+    mat-card{
+        color: rgb(194, 146, 25);
+        background-color: rgb(248, 246, 217);
+    }
 
     border: dotted 3px rgb(194, 146, 25);
-    header{
+
+    mat-card-title{
         border-color:rgb(194, 146, 25);
     }
+
+    mat-card-subtitle{
+        color:rgb(194, 146, 25);
+    }
+
     span{
         border-color:rgb(194, 146, 25);
     }
-    .tags{
-        background-color: rgb(230, 206, 140);
-        border-color: rgb(230, 206, 140);
-    }
-    .tags:hover{
-        background-color: white;
-    }
+    // .tags{
+    //     background-color: rgb(230, 206, 140);
+    //     border-color: rgb(230, 206, 140);
+    // }
+    // .tags:hover{
+    //     background-color: white;
+    // }
 }
 
 :host.single{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: double 5px black;
     box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.5);
     border-radius: 20px;

@@ -30,5 +30,5 @@
 
 <br>
 <!-- <button mat-stroked-button color="accent" [mat-dialog-close]="{content: data{}}">Add</button> -->
-<button mat-stroked-button color="accent" (click)="onYesClick()">Add</button>
+<button mat-stroked-button color="accent" (click)="onYesClick()">{{(temp_id != "") ? "Update" : "Add"}}</button>
 <button mat-stroked-button color="accent" (click)="onNoClick()">Cancel</button>
