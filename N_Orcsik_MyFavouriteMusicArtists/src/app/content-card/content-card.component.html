@@ -5,7 +5,7 @@
         <mat-icon  aria-hidden="false">audiotrack</mat-icon>
         <mat-card-title class = "title">{{ songDisplay.title }}</mat-card-title>
         <mat-card-subtitle>{{ songDisplay.creator }}</mat-card-subtitle>
-        <p>{{ songDisplay.description }}</p>
+        <!-- <p>{{ songDisplay.description }}</p> -->
         <div [ngSwitch]='songDisplay.imgURL'>
             <img *ngSwitchCase="null" (click) = "infoDisplay()" [src] = "'https://carrotstore.com/images/music_default.png'" width = 300 height = 300>
             <img *ngSwitchDefault (click) = "infoDisplay()" [src] = "songDisplay.imgURL" width = 300 height = 300>
@@ -22,7 +22,9 @@
     </mat-card-content>
     
     <mat-card-actions>
-        <app-modify-content buttonText="Update Content" [newSong]="songDisplay">
-        </app-modify-content>
-      </mat-card-actions>
+        <app-modify-content buttonText="Update Content" [newSong]="songDisplay"></app-modify-content>
+        <br>
+        <a [routerLink]="['/list',songDisplay.id]" routerLinkActive="active">More Details</a>
+        <br>
+    </mat-card-actions>
 </mat-card>

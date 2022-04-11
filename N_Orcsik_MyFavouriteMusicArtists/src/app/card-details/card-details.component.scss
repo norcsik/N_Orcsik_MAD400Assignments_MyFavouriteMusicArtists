@@ -1,0 +1,53 @@
+h1{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+:host > div{
+    display: block;
+    border: 1px solid rgb(100, 100, 100);
+    padding: 1em;
+    max-width: 620px;
+    margin: 10px auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+img{
+    display: block;
+    border: 3px solid gray;
+    margin: 20px auto;
+}
+
+h2{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    font-variant: small-caps;
+    border-bottom: 2px solid rgb(100, 100, 100);
+}
+
+p{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: medium;
+}
+
+h3{
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+}
+
+a{
+    display: block;
+    text-align: center; 
+    font-size: large;
+}

@@ -23,6 +23,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 
+import { CardDetailsComponent } from './card-details/card-details.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import {MatIconModule} from '@angular/material/icon';
     HoverAffectDirective,
     MessagesComponent,
     ModifyContentComponent,
-    NewSongDialog
+    NewSongDialog,
+    CardDetailsComponent,
+    ContentListComponent,
+    ContentCardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +58,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule,
     MatCardModule,
     MatChipsModule, 
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [],
+  entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

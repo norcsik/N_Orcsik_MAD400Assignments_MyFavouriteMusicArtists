@@ -1,0 +1,18 @@
+
+<br>
+<h1>Details</h1>
+
+<div *ngIf="songDisplay">
+    <h2>{{ songDisplay.title }} - {{ songDisplay.creator}}</h2>
+    <p *ngIf="songDisplay?.type">{{ songDisplay.type }}</p>
+    <div [ngSwitch]='songDisplay.imgURL'>
+        <img *ngSwitchCase="null" [src] = "'https://carrotstore.com/images/music_default.png'" width = 300 height = 300>
+        <img *ngSwitchDefault  [src] = "songDisplay.imgURL" width = 300 height = 300>
+    </div>
+
+    <h3>{{ songDisplay.description }}</h3>
+</div>
+
+<br>
+<a href="">Return to Content List</a>
+<br>

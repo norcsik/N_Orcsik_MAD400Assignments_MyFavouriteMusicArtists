@@ -1,6 +1,6 @@
 {
   "name": "n-orcsik-my-favourite-music-artists",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,8 @@
     "generatecomponent": "ng generate component",
     "generatepipe": "ng generate pipe",
     "generatedirective": "ng generate directive",
-    "generateservice": "ng generate service"
+    "generateservice": "ng generate service",
+    "generatemodule": "ng generate module"
   },
   "private": true,
   "dependencies": {

@@ -31,6 +31,17 @@ mat-card-subtitle{
     font-size: large;
 }
 
+app-modify-content{
+    display: block;
+    text-align: center;
+}
+
+a{
+    display: block;
+    text-align: center;
+    font-size: large;
+}
+
 p{
     font-size: medium;
     display: block;
@@ -45,7 +56,6 @@ span{
 }
 
 .tags{
-    margin-top: 10px;
     mat-chip{
         background-color: white;
         border: 1px solid black;
