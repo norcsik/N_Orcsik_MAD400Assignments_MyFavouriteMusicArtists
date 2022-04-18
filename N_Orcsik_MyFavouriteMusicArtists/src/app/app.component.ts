@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ContentListComponent } from './content-list/content-list.component';
 import { Content } from './helper-files/content-interface';
+import { LogUpdateService } from './services/log-update.service';
 import { SongService } from './services/song.service';
 
 @Component({
@@ -14,9 +15,13 @@ export class AppComponent {
   songList: Content[];
   singleSong: Content;
 
-  constructor(private songService: SongService){
+  constructor(private songService: SongService, private logService: LogUpdateService){
     this.songList = [];
     this.singleSong = this.songList[0];
+  }
+
+  ngOnInit(): void {
+    this.logService.init();
   }
 
   //Send id through service
